@@ -1,0 +1,37 @@
+name: Deploy
+
+on: [push]   # trigger on which to run te workflow
+
+jobs:
+  
+  build: # synonym for 'deploy'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Copy repository contents via scp  # from github repository to server
+      uses: appleboy/scp-action@master # predefined action pakage on github
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+      with:
+        source: "."  # current working directory
+        target: "/var/www/Requests"
+
+    - name: Executing remote command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+        script: ls
+
+
+
+
+
