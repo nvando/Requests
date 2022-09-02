@@ -20,7 +20,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "."  # current working directory
-        target: "/var/www/Requests"
+        target: "/var/www/requests"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
