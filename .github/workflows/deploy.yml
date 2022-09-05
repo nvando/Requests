@@ -29,7 +29,7 @@ jobs:
         USERNAME: ${{ secrets.SSH_USERNAME }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: ls
+        script: ls -lha /var/www/requests
 #| #yml syntax meaning multipe lines follow
 #systemctl reload requests.service
 
