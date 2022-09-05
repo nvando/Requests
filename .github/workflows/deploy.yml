@@ -29,8 +29,8 @@ jobs:
         USERNAME: ${{ secrets.SSH_USERNAME }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: | #yml syntax meaning multipe lines follow
-          ls
+        script: ls
+#| #yml syntax meaning multipe lines follow
 #systemctl reload requests.service
 
 
