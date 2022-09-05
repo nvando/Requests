@@ -21,7 +21,6 @@ jobs:
       with:
         source: "."  # current working directory
         target: "/var/www/requests"
-        overwrite: False
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
