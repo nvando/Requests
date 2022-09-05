@@ -23,13 +23,16 @@ jobs:
         target: "/var/www/requests"
 
     - name: Executing remote command
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.4
       with:
         host: ${{ secrets.SSH_HOST }}
         USERNAME: ${{ secrets.SSH_USERNAME }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: ls
+        script: | #yml syntax meaning multipe lines follow
+          ls
+          systemctl reload requests.service
+
 
 
 
