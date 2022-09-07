@@ -1,6 +1,12 @@
 name: Deploy
 
-on: [push]   # trigger on which to run te workflow
+#on: #[push]   
+# Only trigger, when the build workflow succeeded
+on: # trigger on which to run te workflow
+  workflow_run:
+    workflows: ["run_tests"]
+    types:
+      - completed
 
 jobs:
   
