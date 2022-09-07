@@ -11,10 +11,10 @@ jobs:
   build: # synonym for 'deploy'
 
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
     - uses: actions/checkout@v2
-
     - name: Copy repository contents via scp  # from github repository to server
       uses: appleboy/scp-action@master # predefined action pakage on github
       env:
