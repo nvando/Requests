@@ -4,7 +4,7 @@ name: Deploy
 # Only trigger, when the build workflow succeeded
 on: # trigger on which to run te workflow
   workflow_run:
-    workflows: ["run_tests"]
+    workflows: ["Run Tests"]
     types:
       - completed
 
