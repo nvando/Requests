@@ -31,7 +31,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script: | #yml syntax meaning multipe lines follow
           ls -lha /var/www/requests 
-          systemctl reload requests.service
+          sudo systemctl reload requests.service
 
 
 
