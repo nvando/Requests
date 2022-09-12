@@ -12,11 +12,12 @@ jobs:
 
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
     steps:
-    - uses: actions/checkout@v2
+
+    - uses: actions/checkout@v3
+    
     - name: Copy repository contents via scp  # from github repository to server
-      uses: appleboy/scp-action@master # predefined action pakage on github
+      uses: appleboy/scp-action@master # predefined action package on github
       env:
         HOST: ${{ secrets.SSH_HOST }}
         USERNAME: ${{ secrets.SSH_USERNAME }}
